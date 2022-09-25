@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
+  `id` int(10) NOT NULL,
   `customer_id` int(50) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
@@ -96,6 +97,7 @@ INSERT INTO `login` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `menu` (
+  `id` int(10) NOT NULL,
   `menu_id` varchar(50) NOT NULL,
   `menu_name` varchar(50) NOT NULL,
   `price` decimal(10,2) NOT NULL,

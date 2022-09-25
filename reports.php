@@ -20,9 +20,9 @@
 <div class="col-md-4">
 			<h1><b><u>All Total</u></b></h1>
 			<?php
-							$con = new mysqli("localhost", "root", "", "kusina online");
+							include_once 'logdb.php';
 							$sql = "SELECT SUM(price*quantity) as `total` FROM order_item ";
-							$querytotal = mysqli_query($con,$sql);
+							$querytotal = mysqli_query($conn,$sql);
 					?>
 					
 					<?php while($row = mysqli_fetch_array($querytotal)):?><br><br>

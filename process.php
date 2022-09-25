@@ -1,7 +1,8 @@
 <?php
 	session_start();
 
-	$mysqli = new mysqli('localhost', 'root', '', 'kusina online') or die(mysqli($mysqli));
+	include_once 'dbsecret.php';
+	$mysqli = new mysqli($dbServername, $dbUsername, $dbPassword, $dbName) or die(mysqli($mysqli));
 	
 	$customer_id= 0;
 	$update = false;
@@ -31,7 +32,7 @@
 		$city = $_POST['city'];
 	
 		
-		$mysqli->query("INSERT INTO customer (id, customer_id, first_name, last_name, middle_initial, phone_number, province, street, barangay, city) VALUES($id,$customer_id, '$first_name', '$last_name', '$middle_initial', '$phone_number', '$province', '$street', '$barangay', '$city')") or die($mysqli->error);
+		$mysqli->query("INSERT INTO customer (id, customer_id, first_name, last_name, middle_initial, phone_number, province, street, barangay, city) VALUES($id, $customer_id, '$first_name', '$last_name', '$middle_initial', '$phone_number', '$province', '$street', '$barangay', '$city')") or die($mysqli->error);
 		header("location: customer.php");
 	}
 		if (isset($_GET['delete'])) {
@@ -40,6 +41,7 @@
 		header("location: customer.php");
 	}
 	if (isset($_GET['edit'])) {
+		// var_dump($_POST);exit;
 		$customer_id = $_GET['edit'];
 		$update = true;
 		$result = $mysqli->query("SELECT * FROM customer WHERE customer_id=$customer_id") or die($mysqli->error());

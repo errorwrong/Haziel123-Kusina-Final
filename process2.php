@@ -1,7 +1,7 @@
 <?php
 	session_start();
-
-	$mysqli = new mysqli('localhost', 'root', '', 'kusina online') or die(mysqli($mysqli));
+	include_once 'dbsecret.php';
+	$mysqli = new mysqli($dbServername, $dbUsername, $dbPassword, $dbName) or die(mysqli($mysqli));
 	
 	$menu_id= 0;
 	$update = false;

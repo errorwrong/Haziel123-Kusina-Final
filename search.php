@@ -76,7 +76,7 @@
 										$enddate = $_GET['enddate'];
 
 
-											$sql = "SELECT order_id, customer_id, timestamp, SUM(price*quantity) FROM customer_order full inner join order_item USING(order_id) WHERE timestamp between '$startdate' and '$enddate' GROUP by order_id desc ;";
+											$sql = "SELECT order_id, customer_id, timestamp, SUM(price*quantity) FROM customer_order full inner join order_item USING(order_id) WHERE timestamp between '$startdate' and '$enddate' GROUP by order_id ORDER BY order_id desc ;";
 											$result = mysqli_query($conn, $sql);
 											$resultCheck = mysqli_num_rows($result);
 											if ($resultCheck > 0) {

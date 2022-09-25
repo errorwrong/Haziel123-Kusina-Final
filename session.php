@@ -2,7 +2,7 @@
 
 
 // mysqli_connect() function opens a new connection to the MySQL server.
-$conn = mysqli_connect("localhost", "root", "", "kusina online");
+include_once 'logdb.php';
 
 session_start();// Starting Session
 

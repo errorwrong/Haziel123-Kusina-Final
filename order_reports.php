@@ -88,7 +88,7 @@
 									$from = "2019-03-19";
 									$to = "2019-03-19";
 
-									$sql = "SELECT order_id, customer_id, timestamp, SUM(price*quantity) FROM customer_order full inner join order_item USING(order_id)  GROUP by order_id desc ;";
+									$sql = "SELECT order_id, customer_id, timestamp, SUM(price*quantity) FROM customer_order full inner join order_item USING(order_id)  GROUP by order_id ORDER BY order_id desc ;";
 									$result = mysqli_query($conn, $sql);
 									$resultCheck = mysqli_num_rows($result);
 									if ($resultCheck > 0) {
@@ -129,9 +129,9 @@
 							<tr>
 								<td>
 									<?php
-										$con = new mysqli('localhost', 'root', '', 'kusina online') or die(mysqli($mysqli));
+										include_once 'logdb.php';
 										$sql = "SELECT SUM(price * quantity) AS `total` FROM order_item";
-										$query_sum = mysqli_query($con,$sql);
+										$query_sum = mysqli_query($conn,$sql);
 									?>
 									<?php while($row = mysqli_fetch_array($query_sum)):?>
 									<div class="dropdown">
@@ -146,9 +146,9 @@
 							<tr>
 								<td>
 									<?php
-										$con = new mysqli('localhost', 'root', '', 'kusina online') or die(mysqli($mysqli));
+										include_once 'logdb.php';
 										$sql = "SELECT COUNT(*) AS `count` FROM menu";
-										$query_menu = mysqli_query($con,$sql);
+										$query_menu = mysqli_query($conn,$sql);
 									?>
 									<?php while($row = mysqli_fetch_array($query_menu)):?>
 									<div class="dropdown">
@@ -164,9 +164,9 @@
 							<tr>
 								<td>
 									<?php
-										$con = new mysqli('localhost', 'root', '', 'kusina online') or die(mysqli($mysqli));
+										include_once 'logdb.php';
 										$sql = "SELECT COUNT(*) AS `count` FROM customer";
-										$query_cus = mysqli_query($con,$sql);
+										$query_cus = mysqli_query($conn,$sql);
 									?>
 									<?php while($row = mysqli_fetch_array($query_cus)):?>
 									<div class="dropdown">
@@ -182,9 +182,9 @@
 							<tr>
 								<td>
 									<?php
-										$con = new mysqli('localhost', 'root', '', 'kusina online') or die(mysqli($mysqli));
+										include_once 'logdb.php';
 										$sql = "SELECT COUNT(*) AS `count` FROM order_item";
-										$query_item = mysqli_query($con,$sql);
+										$query_item = mysqli_query($conn,$sql);
 									?>
 									<?php while($row = mysqli_fetch_array($query_item)):?>
 									<div class="dropdown">

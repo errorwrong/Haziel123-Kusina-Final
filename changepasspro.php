@@ -4,7 +4,7 @@ session_start();
 
 						include_once 'logdb.php';
 						$id = $_SESSION['id'];
-
+var_dump($_POST);
 						$oldpassword = md5($_POST['oldpassword']);
 						$newpassword = md5($_POST['newpassword']);
 						$confirmnewpassword = md5($_POST['confirmnewpassword']);

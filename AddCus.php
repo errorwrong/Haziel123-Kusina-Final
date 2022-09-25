@@ -41,9 +41,9 @@
 								<option value="customer_id">customer id</option>
 								<option value="customer_id"></option>
 									<?php
-										$con = new mysqli("localhost", "root", "", "kusina online");
+										include_once 'logdb.php';
 										$sql = "SELECT * FROM customer";
-										$query = mysqli_query($con,$sql);
+										$query = mysqli_query($conn,$sql);
 									?>
 									<?php while($row = mysqli_fetch_array($query)):?>
 									<option value="<?php echo $row['customer_id'];?>"><?php echo $row['first_name'];?></option>

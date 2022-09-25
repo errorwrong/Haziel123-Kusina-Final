@@ -36,9 +36,9 @@
 								<option value="order_id">order id</option>
 								<option value="order_id"></option>
 									<?php
-										$con = new mysqli("localhost", "root", "", "kusina online");
+										include_once 'logdb.php';
 										$sql = "SELECT * FROM customer_order";
-										$query = mysqli_query($con,$sql);
+										$query = mysqli_query($conn,$sql);
 									?>
 									<?php while($row = mysqli_fetch_array($query)):?>
 									<option value="<?php echo $row['order_id'];?>"><?php echo $row['order_id'];?></option>
@@ -53,9 +53,9 @@
 									<option value="menu_id">menu id</option>
 									<option value="menu_id"></option>
 										<?php
-											$con = new mysqli("localhost", "root", "", "kusina online");
+											include_once 'logdb.php';
 											$sql = "SELECT * FROM menu";
-											$query = mysqli_query($con,$sql);
+											$query = mysqli_query($conn,$sql);
 										?>
 										<?php while($row = mysqli_fetch_array($query)):?>
 										<option value="<?php echo $row['menu_id'];?>"><?php echo $row['menu_name'];?></option>

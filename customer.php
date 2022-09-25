@@ -17,8 +17,8 @@
 	
 	function filterTable($query)
 	{
-		$connect = mysqli_connect("localhost", "root", "", "kusina online");
-		$filter_Result = mysqli_query($connect, $query);
+		include_once 'logdb.php';
+		$filter_Result = mysqli_query($conn, $query);
 		return $filter_Result;
 	}
 ?>
